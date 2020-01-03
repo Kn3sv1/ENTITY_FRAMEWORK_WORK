@@ -1,0 +1,5 @@
+https://developer.okta.com/blog/2019/04/03/build-a-crud-app-with-aspnet-22-and-entity-framework
+
+PS C:\Users\r_satanovskyi\projects\ENTITY_FRAMEWORK\LiveMusicFinder>dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v 2.2.3
+
+PS C:\Users\r_satanovskyi\projects\ENTITY_FRAMEWORK\LiveMusicFinder>dotnet tool install --global dotnet-aspnet-codegenerator --version 2.2.3
