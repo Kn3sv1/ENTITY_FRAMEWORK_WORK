@@ -26,7 +26,10 @@ namespace TaskDemo
             //https://stackoverflow.com/questions/13429707/how-to-get-awaitable-thread-sleep
 
             //http://hamidmosalla.com/2018/04/05/when-should-you-use-task-delay/
-            await Task.Delay(2000);
+            DateTime _start = DateTime.Now;
+            await Task.Delay(4000);
+            TimeSpan elapsed = DateTime.Now - _start;
+            Console.WriteLine("Operation time was: " + elapsed.Minutes + "mn " + elapsed.Seconds + "s");
             Console.WriteLine("ManagedThreadId AFTER:" + Thread.CurrentThread.ManagedThreadId);
 
             return 123;
