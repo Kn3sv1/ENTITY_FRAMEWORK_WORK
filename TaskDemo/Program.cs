@@ -8,15 +8,18 @@ namespace TaskDemo
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("ManagedThreadId MAIN BEGIN:" + Thread.CurrentThread.ManagedThreadId);
             var d = MyMethod(12);
             Console.WriteLine("Hello World");
             Console.WriteLine(d.Result);
             
             Console.WriteLine("END");
+            Console.WriteLine("ManagedThreadId MAIN END:" + Thread.CurrentThread.ManagedThreadId);
             //Thread.Sleep(4000);
         }
         public static async Task<int> MyMethod(int myParameter)
         {
+            Console.WriteLine("ManagedThreadId BEGIN:" + Thread.CurrentThread.ManagedThreadId);
             //Thread.Sleep(4000);
 
             //Thread.Sleep in my button event handler (running in the UI thread), the UI is not responsive while it's sleeping.
@@ -24,6 +27,7 @@ namespace TaskDemo
 
             //http://hamidmosalla.com/2018/04/05/when-should-you-use-task-delay/
             await Task.Delay(2000);
+            Console.WriteLine("ManagedThreadId AFTER:" + Thread.CurrentThread.ManagedThreadId);
 
             return 123;
             //await  123;
