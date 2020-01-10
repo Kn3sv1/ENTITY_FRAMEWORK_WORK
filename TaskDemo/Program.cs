@@ -4,9 +4,9 @@ using System.Threading;
 
 namespace TaskDemo
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             Console.WriteLine("ManagedThreadId MAIN BEGIN:" + Thread.CurrentThread.ManagedThreadId);
             var d = MyMethod(12);
@@ -28,12 +28,21 @@ namespace TaskDemo
             //http://hamidmosalla.com/2018/04/05/when-should-you-use-task-delay/
             DateTime _start = DateTime.Now;
             await Task.Delay(4000);
+
+            await MyLoveAsync();
             TimeSpan elapsed = DateTime.Now - _start;
             Console.WriteLine("Operation time was: " + elapsed.Minutes + "mn " + elapsed.Seconds + "s");
             Console.WriteLine("ManagedThreadId AFTER:" + Thread.CurrentThread.ManagedThreadId);
 
             return 123;
             //await  123;
+        }
+
+        public async static Task<int> MyLoveAsync()
+        {
+            Thread.Sleep(4000);
+
+            return 11111;
         }
     }
 }
